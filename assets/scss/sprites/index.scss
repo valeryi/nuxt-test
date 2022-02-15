@@ -1,0 +1,11 @@
+$sprite-primary-url: 'https://d9qzjwuieyamt.cloudfront.net/5.6.1.36/res/images/sprite/layout-sprite-uk.png?20220127113847';
+$sprite-secondary-url: 'https://d9qzjwuieyamt.cloudfront.net/5.6.1.36/res/images/sprite/layout-sprite.png?20220127113847';
+
+%logo-small {
+    display: block;
+    background-position: 10px -116px;
+    width: 150px;
+    height: 35px;
+    background-image: url($sprite-primary-url);
+    background-size: 500px;
+}

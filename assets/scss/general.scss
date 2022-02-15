@@ -1,0 +1,9 @@
+@import './variables/typography.scss';
+
+html,
+body {
+    overflow-x: hidden;
+    font-family: $typography-font-primary;
+    font-size: 16px;
+    min-height: 100vh;
+}

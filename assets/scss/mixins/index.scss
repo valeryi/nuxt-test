@@ -1,0 +1,21 @@
+@mixin link-underlined($color: #fff, $reversed: false) {
+    color: $color;
+
+    @if $reversed {
+        text-decoration: none;
+    } @else {
+        text-decoration: underline;
+    }
+
+    @content;
+
+    &:hover {
+        color: $color;
+
+        @if $reversed {
+            text-decoration: underline;
+        } @else {
+            text-decoration: none;
+        }
+    }
+}
