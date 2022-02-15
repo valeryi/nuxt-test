@@ -21,7 +21,7 @@
                     md="auto"
                     class="d-none d-md-flex justify-content-between header-discount__info"
                 >
-                    <strong class="header-discount__reward mx-2">
+                    <div class="header-discount__reward mx-2">
                         <b-icon
                             icon="trophy-fill"
                             scale=".8"
@@ -35,9 +35,9 @@
                             title="Spend & Earn Rewards"
                             >Spend & Earn Rewards »</a
                         >
-                    </strong>
+                    </div>
 
-                    <strong class="mx-2">
+                    <div class="mx-2">
                         <!-- TODO: Change icons -->
                         <b-icon
                             icon="phone"
@@ -52,7 +52,7 @@
                             title="Call and Buy"
                             >0330 165 6900</a
                         >
-                    </strong>
+                    </div>
 
                     <lazy-the-header-discount-label-dropdown-help />
                     <lazy-the-header-discount-label-dropdown-currency
@@ -139,10 +139,6 @@ $header-discount-rewards-link-color: #ffee7e;
         }
     }
 
-    &__icon {
-        transform: translateY(-2px);
-    }
-
     &__info {
         position: relative;
         right: -35px;
@@ -158,14 +154,12 @@ $header-discount-rewards-link-color: #ffee7e;
 
     &__reward-link {
         @include link-underlined($header-discount-rewards-link-color) {
-            font-weight: bold;
             font-size: 1em;
         }
     }
 
     &__phone-link {
         @include link-underlined($header-discount-color, true) {
-            font-weight: bold;
             font-size: 1em;
         }
     }

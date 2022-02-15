@@ -146,6 +146,11 @@ $discount-label-dropdown-shadow: 0 3px 5px 0 rgb(0 0 0 / 30%);
 
         .dropdown-menu {
             border: none;
+            min-width: 11rem;
+        }
+
+        .b-dropdown-form {
+            padding: 0;
         }
     }
 

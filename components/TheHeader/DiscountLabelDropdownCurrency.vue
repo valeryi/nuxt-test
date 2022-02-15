@@ -157,7 +157,12 @@ $discount-dropdown-currency-color-hovered: #2ba6cb;
         width: calc(100% - (0.8em * 2));
         border: 1px solid $discount-dropdown-currency-select-border-color;
         font-size: 0.8em;
-        padding: 0.4em 0;
+        padding: 0 0.5rem;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
     }
 
     &__item {
@@ -185,17 +190,10 @@ $discount-dropdown-currency-color-hovered: #2ba6cb;
 
     &__lang-label,
     &__currency-label {
-        margin: 0 0.8em;
+        font-size: 0.75em;
         font-weight: bold;
-    }
-
-    &__lang-label {
-        font-size: 0.8em;
-    }
-
-    &__currency-label {
-        font-size: 0.7em;
-        padding-left: 4px;
+        margin: 0 0.8em;
+        padding-left: 1px;
     }
 
     &__button {
