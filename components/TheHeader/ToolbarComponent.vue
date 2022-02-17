@@ -36,7 +36,7 @@ export default {
                         href: '#',
                         title: 'Glasses',
                         text: 'Glasses',
-                    }
+                    },
                 },
                 {
                     link: {
@@ -44,18 +44,17 @@ export default {
                         title: 'Sunglasses',
                         text: 'Sunglasses',
                     },
-                    submenu:
-                    {
+                    submenu: {
                         gender: [
                             {
                                 href: '#',
-                                title: 'Men\'s Sunglasses',
-                                text: 'Men\'s Sunglasses',
+                                title: "Men's Sunglasses",
+                                text: "Men's Sunglasses",
                             },
                             {
                                 href: '#',
-                                title: 'Women\'s Sunglasses',
-                                text: 'Women\'s Sunglasses',
+                                title: "Women's Sunglasses",
+                                text: "Women's Sunglasses",
                             },
                         ],
                         other: [
@@ -99,7 +98,7 @@ export default {
                                         title: 'item 1',
                                         text: 'item 1',
                                     },
-                                ]
+                                ],
                             },
                             {
                                 href: '#',
@@ -126,17 +125,17 @@ export default {
                                         title: 'item 1',
                                         text: 'item 1',
                                     },
-                                ]
+                                ],
                             },
                         ],
-                    }
+                    },
                 },
                 {
                     link: {
                         href: '#',
                         title: 'Brands',
                         text: 'Brands',
-                    }
+                    },
                 },
                 {
                     link: {
@@ -151,7 +150,7 @@ export default {
                         href: '#',
                         title: 'HearingAIDs',
                         text: 'HearingAIDs',
-                    }
+                    },
                 },
                 {
                     link: {
@@ -159,18 +158,17 @@ export default {
                         title: 'More',
                         text: 'More',
                     },
-                    submenu:
-                    {
+                    submenu: {
                         gender: [
                             {
                                 href: '#',
-                                title: 'Men\'s Sunglasses',
-                                text: 'Men\'s Sunglasses',
+                                title: "Men's Sunglasses",
+                                text: "Men's Sunglasses",
                             },
                             {
                                 href: '#',
-                                title: 'Women\'s Sunglasses',
-                                text: 'Women\'s Sunglasses',
+                                title: "Women's Sunglasses",
+                                text: "Women's Sunglasses",
                             },
                         ],
                         other: [
@@ -214,7 +212,7 @@ export default {
                                         title: 'item 1',
                                         text: 'item 1',
                                     },
-                                ]
+                                ],
                             },
                             {
                                 href: '#',
@@ -241,11 +239,11 @@ export default {
                                         title: 'item 1',
                                         text: 'item 1',
                                     },
-                                ]
+                                ],
                             },
                         ],
-                    }
-                }
+                    },
+                },
             ],
         }
     },

@@ -1,6 +1,10 @@
 <template>
     <nav class="toolbar-nav" role="navigation">
-        <div v-for="(item, index) of menu" :key="index" class="toolbar-nav__item">
+        <div
+            v-for="(item, index) of menu"
+            :key="index"
+            class="toolbar-nav__item"
+        >
             <a
                 :href="item.link.href"
                 :alt="item.link.alt"
@@ -8,7 +12,8 @@
                 :class="linkClasses(item)"
                 class="toolbar-nav__link"
                 aria-haspopup="true"
-            >{{ item.link.text }}</a>
+                >{{ item.link.text }}</a
+            >
 
             <the-header-toolbar-nav-dropdown
                 v-if="item.submenu"
@@ -33,8 +38,8 @@ export default {
                 'toolbar-nav__link--special': item.special,
                 'toolbar-nav__link--submenu': item.submenu,
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -67,14 +72,15 @@ $toolbar-nav-dropdown-menu-aligning: calc(-100% + -1px);
         }
 
         &--submenu::after {
-            content: "";
+            content: '';
             display: inline-block;
             width: 0;
             height: 0;
             border-style: solid;
             border-width: 6px 5px 0 5px;
-            border-color: $toolbar-nav-link-triangle-color transparent transparent transparent;
-            margin-left: .7rem;
+            border-color: $toolbar-nav-link-triangle-color transparent
+                transparent transparent;
+            margin-left: 0.7rem;
             transform: translateY(-2px);
         }
 

@@ -33,7 +33,7 @@ $breadcrumbs-font-xolor: #b0b0b0;
     font-size: $breadcrumbs-font-size;
     background-color: transparent;
     text-transform: uppercase;
-    padding: .3rem 0;
+    padding: 0.3rem 0;
 
     &-item {
         a {

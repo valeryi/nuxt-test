@@ -1,7 +1,11 @@
 <template>
     <ul
         class="toolbar-nav-dropdown"
-        :class="level == 1 ? 'toolbar-nav-dropdown--top' : 'toolbar-nav-dropdown--sub'"
+        :class="
+            level == 1
+                ? 'toolbar-nav-dropdown--top'
+                : 'toolbar-nav-dropdown--sub'
+        "
         aria-label="submenu"
     >
         <li
@@ -9,10 +13,18 @@
             :key="`gender_${index}`"
             class="toolbar-nav-dropdown__item toolbar-nav-dropdown__item--gender"
         >
-            <a :href="link.href" class="toolbar-nav-dropdown__link">{{ link.text }}</a>
+            <a :href="link.href" class="toolbar-nav-dropdown__link">{{
+                link.text
+            }}</a>
         </li>
-        <li v-for="(link, index) of submenu" :key="index" class="toolbar-nav-dropdown__item">
-            <a :href="link.href" class="toolbar-nav-dropdown__link">{{ link.text }}</a>
+        <li
+            v-for="(link, index) of submenu"
+            :key="index"
+            class="toolbar-nav-dropdown__item"
+        >
+            <a :href="link.href" class="toolbar-nav-dropdown__link">{{
+                link.text
+            }}</a>
             <the-header-toolbar-nav-dropdown
                 v-if="link.submenu"
                 :submenu="link.submenu"
@@ -36,8 +48,8 @@ export default {
         level: {
             type: Number,
             default: 1,
-        }
-    }
+        },
+    },
 }
 </script>
 
