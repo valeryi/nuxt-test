@@ -1,6 +1,6 @@
 <template>
     <b-container>
-        <b-row>
+        <!-- <b-row>
             <b-col>
                 <div>
                     <button @click="toggleSidebarMobile">show sidebar</button>
@@ -134,7 +134,7 @@
             debitis tempora, quae at quaerat voluptate harum nulla vero maiores,
             rem sequi consequuntur eveniet? Alias atque exercitationem nihil
             numquam harum nisi ut. Corrupti, error mollitia.
-        </span>
+        </span> -->
     </b-container>
 </template>
 

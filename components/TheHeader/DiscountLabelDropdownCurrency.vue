@@ -143,7 +143,7 @@ export default {
 <style lang="scss">
 $discount-dropdown-currency-border-color: #e6e6e6;
 $discount-dropdown-currency-select-border-color: #cacaca;
-$discount-dropdown-currency-color-hovered: #2ba6cb;
+$discount-dropdown-currency-color-hovered: $typography-link-hover-color;
 
 .discount-dropdown-currency {
     min-width: 130px;

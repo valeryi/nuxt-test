@@ -3,10 +3,12 @@
         class="layout layout--default"
         :class="{ 'layout--shifted': isMobileActive }"
     >
-        <lazy-the-header-sidebar-mobile
-            v-if="$screen.mobile"
-            class="layout__sidebar"
-        />
+        <client-only>
+            <lazy-the-header-sidebar-mobile
+                v-if="$screen.mobile"
+                class="layout__sidebar"
+            />
+        </client-only>
 
         <div class="layout__wrapper">
             <the-header />
@@ -15,20 +17,28 @@
                 <nuxt />
             </main>
 
-            <lazy-the-footer />
+            <LazyHydrate :when-visible="{ rootMargin: '200px' }">
+                <lazy-the-footer />
+            </LazyHydrate>
 
-            <lazy-ui-overlay-component
-                :show="isMobileActive"
-                @hide="toggleSidebar"
-            />
+            <LazyHydrate never>
+                <lazy-ui-overlay-component
+                    :show="isMobileActive"
+                    @hide="toggleSidebar"
+                />
+            </LazyHydrate>
         </div>
     </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
+    components: {
+        LazyHydrate,
+    },
     computed: {
         ...mapGetters({
             isMobileActive: 'sidebar/isMobileActive',

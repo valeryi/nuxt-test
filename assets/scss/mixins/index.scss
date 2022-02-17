@@ -19,3 +19,45 @@
         }
     }
 }
+
+@mixin hide-up($breakpoint: sm, $display: flex) {
+    display: $display;
+    @content;
+
+    @include media-breakpoint-up($breakpoint) {
+        display: none !important;
+    }
+}
+
+@mixin hide-down($breakpoint: sm, $display: flex) {
+    display: none;
+
+    @include media-breakpoint-up($breakpoint) {
+        display: $display !important;
+        @content;
+    }
+}
+
+@mixin grid-cell($number: 12) {
+    flex: calc(100% / 12) * $number;
+    max-width: calc(100% / 12) * $number;
+    width: calc(100% / 12) * $number;
+}
+
+@mixin visible-up($breakpoint: sm, $visibility: visible) {
+    visibility: $visibility;
+    @content;
+
+    @include media-breakpoint-up($breakpoint) {
+        visibility: hidden !important;
+    }
+}
+
+@mixin visible-down($breakpoint: sm, $visibility: visible) {
+    visibility: hidden;
+
+    @include media-breakpoint-up($breakpoint) {
+        visibility: $visibility !important;
+        @content;
+    }
+}

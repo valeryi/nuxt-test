@@ -59,6 +59,7 @@ export default {
     screen: {
         extend: 'bootstrap',
         mobile: (screen) => (screen.xs || screen.sm) && !screen.md,
+        desktop: (screen) => screen.lg || screen.xl,
     },
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios

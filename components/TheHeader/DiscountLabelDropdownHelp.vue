@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss">
 $discount-dropdown-help-border-color: #e6e6e6;
-$discount-dropdown-help-color-hovered: #2ba6cb;
+$discount-dropdown-help-color-hovered: $typography-link-hover-color;
 
 .discount-dropdown-help {
     padding: 0 1em;

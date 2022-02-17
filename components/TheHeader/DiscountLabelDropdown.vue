@@ -123,14 +123,13 @@ $discount-label-dropdown-shadow: 0 3px 5px 0 rgb(0 0 0 / 30%);
         .dropdown-toggle {
             display: flex;
             align-items: center;
-            background-color: transparent;
-            border: none;
             outline: none;
-            box-shadow: none;
             padding: 0;
-            margin: 0;
             font-size: 1em;
             margin: 0 0.6em;
+            box-shadow: none !important;
+            border: none !important;
+            background-color: transparent !important;
 
             &::after {
                 display: inline;

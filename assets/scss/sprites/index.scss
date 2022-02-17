@@ -9,3 +9,30 @@ $sprite-secondary-url: 'https://d9qzjwuieyamt.cloudfront.net/5.6.1.36/res/images
     background-image: url($sprite-primary-url);
     background-size: 500px;
 }
+
+%logo-big {
+    display: block;
+    background-position: 24px 3px;
+    width: 224px;
+    height: 90px;
+    background-image: url($sprite-primary-url);
+    background-size: 500px;
+}
+
+%car {
+    display: block;
+    background-position: -6px 1px;
+    width: 95px;
+    height: 44px;
+    background-image: url($sprite-secondary-url);
+    background-size: 750px;
+}
+
+%trustpilot {
+    display: block;
+    background-position: -115px 3px;
+    width: 126px;
+    height: 44px;
+    background-size: 750px;
+    background-image: url($sprite-secondary-url);
+}

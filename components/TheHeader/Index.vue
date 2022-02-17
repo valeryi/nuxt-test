@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <the-header-discount-label />
-        <lazy-the-header-logo-section />
-        <the-header-toolbar-component @toggleSidebar="toggleSidebar" />
+        <lazy-the-header-logo-section @sidebar:toggle="toggleSidebar" />
+        <the-header-toolbar-component @sidebar:toggle="toggleSidebar" />
         <the-header-breadcrumbs-component />
     </header>
 </template>
