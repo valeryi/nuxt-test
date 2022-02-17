@@ -141,10 +141,12 @@ $header-logo-section: #f6f6f6;
         @include media-breakpoint-up(640px) {
             justify-content: center;
             align-items: center;
+            transform: translateX(-22px);
         }
 
         @include media-breakpoint-up(1024px) {
             @include grid-cell(4);
+            transform: unset;
         }
 
         &--mobile {
