@@ -6,7 +6,9 @@
                     <h1
                         class="d-flex justify-content-center reglaze-section__header"
                     >Reglaze My Glasses / Sunglasses</h1>
-                    <p class="d-inline justify-content-center text-center mt-2">
+                    <p
+                        class="d-inline justify-content-center text-center mt-2 reglaze-section__text"
+                    >
                         Give your favourite pair of prescription glasses (or
                         sunglasses) a new lease of life with our premium lens
                         replacement service starting from only
@@ -100,6 +102,17 @@ $reglaze-cards-section-border-width: 2px;
 
         @include media-breakpoint-up(1024px) {
             font-size: 1.8em;
+        }
+    }
+
+    &__text {
+        @include media-breakpoint-up(640px) {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        @include media-breakpoint-up(1024px) {
+            max-width: 70%;
         }
     }
 

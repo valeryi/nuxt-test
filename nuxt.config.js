@@ -52,6 +52,8 @@ export default {
 
     bootstrapVue: {
         icons: true,
+        bootstrapCSS: false,
+        bootstrapVueCSS: false,
         // components: [], // TODO: prepare for production
     },
 
@@ -69,5 +71,5 @@ export default {
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {}
 }

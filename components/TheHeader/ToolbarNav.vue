@@ -48,7 +48,7 @@ $toolbar-nav-link-color-hover: #d3d3d3;
 $toolbar-nav-link-color: #222;
 $toolbar-nav-link-triangle-color: #ce6627;
 $toolbar-nav-link-color-special: #cc2d1d;
-$toolbar-nav-dropdown-menu-aligning: calc(-100% + -1px);
+$toolbar-nav-dropdown-menu-aligning: -100%;
 
 .toolbar-nav {
     padding: 0.1em 0;

@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         sizeHandler() {
-            if (window.innerWidth < this.$screen.config.xl) {
+            if (window.innerWidth < 1400) {
                 this.isFluid = true
             } else {
                 this.isFluid = false
