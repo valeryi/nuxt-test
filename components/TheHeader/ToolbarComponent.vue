@@ -4,7 +4,7 @@
             <b-row class="toolbar__wrapper">
                 <ui-button-burger class="toolbar__burger" @toggle="onClick" />
 
-                <the-header-toolbar-nav :menu="nav" />
+                <the-header-toolbar-nav :menu="menu" />
 
                 <div class="toolbar__icons">
                     <the-header-icon-component
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     data() {
         return {
@@ -30,222 +32,12 @@ export default {
                 { icon: 'search', text: 'search' },
                 { icon: 'heart', text: 'wishlist' },
             ],
-            nav: [
-                {
-                    link: {
-                        href: '#',
-                        title: 'Glasses',
-                        text: 'Glasses',
-                    },
-                },
-                {
-                    link: {
-                        href: '#',
-                        title: 'Sunglasses',
-                        text: 'Sunglasses',
-                    },
-                    submenu: {
-                        gender: [
-                            {
-                                href: '#',
-                                title: "Men's Sunglasses",
-                                text: "Men's Sunglasses",
-                            },
-                            {
-                                href: '#',
-                                title: "Women's Sunglasses",
-                                text: "Women's Sunglasses",
-                            },
-                        ],
-                        other: [
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                                submenu: [
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                ],
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                                submenu: [
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                },
-                {
-                    link: {
-                        href: '#',
-                        title: 'Brands',
-                        text: 'Brands',
-                    },
-                },
-                {
-                    link: {
-                        href: '#',
-                        title: 'Sale',
-                        text: 'Sale',
-                    },
-                    special: true,
-                },
-                {
-                    link: {
-                        href: '#',
-                        title: 'HearingAIDs',
-                        text: 'HearingAIDs',
-                    },
-                },
-                {
-                    link: {
-                        href: '#',
-                        title: 'More',
-                        text: 'More',
-                    },
-                    submenu: {
-                        gender: [
-                            {
-                                href: '#',
-                                title: "Men's Sunglasses",
-                                text: "Men's Sunglasses",
-                            },
-                            {
-                                href: '#',
-                                title: "Women's Sunglasses",
-                                text: "Women's Sunglasses",
-                            },
-                        ],
-                        other: [
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                                submenu: [
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                ],
-                            },
-                            {
-                                href: '#',
-                                title: 'Sunglasses',
-                                text: 'Sunglasses',
-                                submenu: [
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                    {
-                                        href: '#',
-                                        title: 'item 1',
-                                        text: 'item 1',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                },
-            ],
         }
+    },
+    computed: {
+        ...mapGetters({
+            menu: 'menu/getMenu',
+        }),
     },
     methods: {
         onClick() {

@@ -4,9 +4,10 @@
         :class="{ 'layout--shifted': isMobileActive }"
     >
         <client-only>
-            <lazy-the-header-sidebar-mobile
+            <lazy-the-header-menu-mobile
                 v-if="$screen.mobile"
                 class="layout__sidebar"
+                @close="toggleSidebar"
             />
         </client-only>
 
