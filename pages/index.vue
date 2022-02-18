@@ -2,10 +2,15 @@
     <div class="reglaze-page">
         <custom-container class="reglaze-section">
             <b-row>
-                <b-col cols="12" class="d-flex flex-column justify-content-center">
+                <b-col
+                    cols="12"
+                    class="d-flex flex-column justify-content-center"
+                >
                     <h1
                         class="d-flex justify-content-center reglaze-section__header"
-                    >Reglaze My Glasses / Sunglasses</h1>
+                    >
+                        Reglaze My Glasses / Sunglasses
+                    </h1>
                     <p
                         class="d-inline justify-content-center text-center mt-2 reglaze-section__text"
                     >
@@ -34,18 +39,24 @@
                         <b-card class="reglaze-cards-section__card my-4">
                             <b-card-text
                                 class="text-center font-weight-bold text-uppercase"
-                            >SEMI rimless</b-card-text>
+                                >SEMI rimless</b-card-text
+                            >
 
-                            <b-card-text class="d-flex flex-column align-items-center">
+                            <b-card-text
+                                class="d-flex flex-column align-items-center"
+                            >
                                 <img
                                     class="reglaze-cards-section__image"
                                     src="https://d9qzjwuieyamt.cloudfront.net/5.6.1.36/res/images/_jpg/reglaze/reglaze-sr.jpg?20220127113847"
                                     alt="glasses"
                                 />
-                                <span class="reglaze-cards-section__price">$65.33</span>
+                                <span class="reglaze-cards-section__price"
+                                    >$65.33</span
+                                >
                                 <span
                                     class="font-weight-bold text-center reglaze-cards-section__description"
-                                >Including Lenses & Coatings</span>
+                                    >Including Lenses & Coatings</span
+                                >
 
                                 <b-button
                                     class="reglaze-cards-section__button mt-4"
@@ -54,7 +65,8 @@
                                             ? `lg`
                                             : null
                                     "
-                                >Start Reglaze Now »</b-button>
+                                    >Start Reglaze Now »</b-button
+                                >
                             </b-card-text>
                         </b-card>
                     </b-col>
@@ -62,18 +74,7 @@
             </custom-container>
         </div>
 
-        <div class="tabs-section">
-            <custom-container>
-                <b-tabs content-class="mt-3">
-                    <b-tab title="First" active>
-                        <p>I'm the first tab</p>
-                    </b-tab>
-                    <b-tab title="Second">
-                        <p>I'm the second tab</p>
-                    </b-tab>
-                </b-tabs>
-            </custom-container>
-        </div>
+        <reglaze-tabs-section />
     </div>
 </template>
 
@@ -87,10 +88,7 @@ export default {
 $reglaze-cards-section-border-color-hover: #fc4c02;
 $reglaze-cards-section-font-size: 0.85em;
 $reglaze-cards-section-bg-color: #f7f5f6;
-$reglaze-cards-section-border-color: lighten(
-    $color: gray,
-    $amount: 30%
-);
+$reglaze-cards-section-border-color: #a0a0a0;
 $reglaze-cards-section-border-width: 2px;
 
 .reglaze-section {
