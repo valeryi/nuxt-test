@@ -61,3 +61,10 @@
         @content;
     }
 }
+
+@mixin truncate($width: 200) {
+    width: $width;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

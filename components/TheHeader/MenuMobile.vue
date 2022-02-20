@@ -1,12 +1,11 @@
 <template>
-    <div class="sidebar-mobile">
-        <the-header-menu-mobile-group
-            :menu="menu"
-            group-name="Menu"
-            show-close
-            @close="close"
-        />
-    </div>
+    <the-header-menu-mobile-group
+        :menu="menu"
+        group-name="Menu"
+        show-close
+        class="sidebar-mobile"
+        @close="onClose"
+    />
 </template>
 
 <script>
@@ -19,7 +18,7 @@ export default {
         }),
     },
     methods: {
-        close() {
+        onClose() {
             this.$emit('close')
         },
     },
@@ -27,8 +26,10 @@ export default {
 </script>
 
 <style lang="scss">
+$sidebar-width: 200px;
+
 .sidebar-mobile {
     user-select: none;
-    width: 200px;
+    width: $sidebar-width;
 }
 </style>

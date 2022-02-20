@@ -13,7 +13,7 @@ import { mapMutations } from 'vuex'
 export default {
     methods: {
         ...mapMutations({
-            toggleSidebar: 'sidebar/TOGGLE_SIDEBAR_MOBILE',
+            toggleSidebar: 'menu/TOGGLE_SIDEBAR_MOBILE',
         }),
     },
 }

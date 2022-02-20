@@ -5,28 +5,38 @@
             <span
                 v-if="showClose"
                 class="sidebar-menu-group__header-button"
-                @click="onClick"
+                @click="onClose"
                 >Close</span
             >
         </div>
 
-        <ul class="sidebar-menu-group__menu">
+        <ul ref="menuGroup" class="sidebar-menu-group__menu">
             <li
                 v-for="(item, index) of menu"
                 :key="index"
                 class="sidebar-menu-group__menu-item"
                 :class="hasSubmenu(item)"
-                @click.prevent="onLinkClick(item)"
+                @click.prevent="onLinkClick(item, index)"
             >
-                <a href="#" class="sidebar-menu-group__menu-link">
-                    {{ item.link.text }}
-                </a>
+                <a href="#" class="sidebar-menu-group__menu-link">{{
+                    item.link.text
+                }}</a>
+
+                <the-header-menu-mobile-group-dropdown
+                    v-if="item.submenu"
+                    :id="`1_${index}`"
+                    :menu="[...item.submenu.gender, ...item.submenu.other]"
+                    @dropdown:close="onCloseDropdown"
+                    @dropdown:open="onOpenDropdown"
+                />
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
     props: {
         menu: {
@@ -42,12 +52,16 @@ export default {
         },
     },
     methods: {
-        onClick() {
+        ...mapMutations({
+            popDropdown: 'menu/POP_DROPDOWN',
+            pushDropdown: 'menu/PUSH_DROPDOWN',
+        }),
+        onClose() {
             this.$emit('close')
         },
-        onLinkClick(item) {
+        onLinkClick(item, index) {
             if (item.submenu) {
-                // console.log(item)
+                this.pushDropdown(`1_${index}`)
             } else {
                 open(item.link.href, '_self')
             }
@@ -56,6 +70,15 @@ export default {
             return {
                 'sidebar-menu-group__menu-item--has-submenu': item.submenu,
             }
+        },
+        onOpenDropdown({ id }) {
+            this.$refs.menuGroup.scrollTop = 0
+            this.pushDropdown(id)
+            this.$emit('dropdown:open')
+        },
+        onCloseDropdown() {
+            this.popDropdown()
+            this.$emit('dropdown:close')
         },
     },
 }
@@ -91,6 +114,8 @@ $sidebar-menu-group-menu-border-color: #555;
         list-style: none;
         margin: 0;
         padding: 0;
+        position: relative;
+        overflow-y: scroll;
 
         &-item {
             display: flex;
@@ -120,6 +145,7 @@ $sidebar-menu-group-menu-border-color: #555;
                     border-right-width: 0;
                     position: absolute;
                     right: 1rem;
+                    z-index: 1000;
                 }
             }
         }
@@ -132,6 +158,8 @@ $sidebar-menu-group-menu-border-color: #555;
             color: $sidebar-menu-group-menu-link-color;
             font-size: 0.7rem;
             letter-spacing: 0.07em;
+
+            @include truncate(200px);
 
             &:hover {
                 color: $sidebar-menu-group-menu-link-color;

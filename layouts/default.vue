@@ -7,7 +7,7 @@
             <lazy-the-header-menu-mobile
                 v-if="$screen.mobile"
                 class="layout__sidebar"
-                @close="toggleSidebar"
+                @close="closeSideBarMobile"
             />
         </client-only>
 
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
@@ -42,12 +42,15 @@ export default {
     },
     computed: {
         ...mapGetters({
-            isMobileActive: 'sidebar/isMobileActive',
+            isMobileActive: 'menu/isMobileActive',
         }),
     },
     methods: {
         ...mapMutations({
-            toggleSidebar: 'sidebar/TOGGLE_SIDEBAR_MOBILE',
+            toggleSidebar: 'menu/TOGGLE_SIDEBAR_MOBILE',
+        }),
+        ...mapActions({
+            closeSideBarMobile: 'menu/closeSideBarMobile',
         }),
     },
 }

@@ -215,11 +215,50 @@ export const state = () => {
                 },
             },
         ],
+        mobileActive: false,
+        dropdowns: [],
     }
 }
 
 export const getters = {
     getMenu: (state) => {
         return state.menu
+    },
+    isMobileActive: (state) => {
+        return state.mobileActive
+    },
+    getDropdowns: (state) => {
+        return state.dropdowns
+    },
+    getCurrentDropdown: (state) => {
+        return state.dropdowns[state.dropdowns.length - 1]
+    },
+}
+
+export const actions = {
+    closeSideBarMobile: ({ commit }) => {
+        commit('TOGGLE_SIDEBAR_MOBILE')
+        commit('CLEAR_DROPDOWNS')
+    },
+}
+
+export const mutations = {
+    TOGGLE_SIDEBAR_MOBILE(state) {
+        state.mobileActive = !state.mobileActive
+    },
+    PUSH_DROPDOWN(state, id) {
+        state.dropdowns.push(id)
+    },
+    POP_DROPDOWN(state) {
+        state.dropdowns.pop()
+    },
+    CLEAR_DROPDOWNS(state) {
+        state.dropdowns = []
+    },
+    PUSH_DROPDOWN_HEIGHT(state, height) {
+        state.dropdownHeight.push(height)
+    },
+    POP_DROPDOWN_HEIGHT(state) {
+        state.dropdownHeight.pop()
     },
 }
