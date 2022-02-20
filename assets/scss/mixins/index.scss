@@ -62,7 +62,7 @@
     }
 }
 
-@mixin truncate($width: 200) {
+@mixin truncate($width: 200px) {
     width: $width;
     white-space: nowrap;
     overflow: hidden;

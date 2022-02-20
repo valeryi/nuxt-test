@@ -2,12 +2,17 @@
     <div class="sidebar-menu-group">
         <div class="sidebar-menu-group__header">
             <span>{{ groupName }}</span>
-            <span
+            <div
                 v-if="showClose"
                 class="sidebar-menu-group__header-button"
                 @click="onClose"
-                >Close</span
             >
+                <span
+                    v-for="i of 2"
+                    :key="i"
+                    class="sidebar-menu-group__header-button-line"
+                ></span>
+            </div>
         </div>
 
         <ul ref="menuGroup" class="sidebar-menu-group__menu">
@@ -15,17 +20,25 @@
                 v-for="(item, index) of menu"
                 :key="index"
                 class="sidebar-menu-group__menu-item"
-                :class="hasSubmenu(item)"
-                @click.prevent="onLinkClick(item, index)"
+                :class="computedClasses(item)"
+                @click="onLinkClick(item, index)($event)"
             >
-                <a href="#" class="sidebar-menu-group__menu-link">{{
-                    item.link.text
-                }}</a>
+                <b-icon
+                    v-if="item.icon"
+                    :icon="item.icon"
+                    class="sidebar-menu-group__menu-icon"
+                />
+
+                <a
+                    :href="getHref(item)"
+                    class="sidebar-menu-group__menu-link"
+                    >{{ item.text }}</a
+                >
 
                 <the-header-menu-mobile-group-dropdown
                     v-if="item.submenu"
                     :id="`1_${index}`"
-                    :menu="[...item.submenu.gender, ...item.submenu.other]"
+                    :menu="item.submenu"
                     @dropdown:close="onCloseDropdown"
                     @dropdown:open="onOpenDropdown"
                 />
@@ -56,19 +69,31 @@ export default {
             popDropdown: 'menu/POP_DROPDOWN',
             pushDropdown: 'menu/PUSH_DROPDOWN',
         }),
+        getHref(item) {
+            if (item.tel) return `tel:${item.tel}`
+            else if (item.email) return `mailto:${item.email}`
+            else return item.href
+        },
         onClose() {
             this.$emit('close')
         },
         onLinkClick(item, index) {
-            if (item.submenu) {
-                this.pushDropdown(`1_${index}`)
-            } else {
-                open(item.link.href, '_self')
+            return (event) => {
+                if (!item.email && !item.tel) {
+                    event.preventDefault()
+
+                    if (item.submenu) {
+                        this.pushDropdown(`1_${index}`)
+                    } else {
+                        open(item.href, '_self')
+                    }
+                }
             }
         },
-        hasSubmenu(item) {
+        computedClasses(item) {
             return {
                 'sidebar-menu-group__menu-item--has-submenu': item.submenu,
+                'sidebar-menu-group__menu-item--with-icon': item.icon,
             }
         },
         onOpenDropdown({ id }) {
@@ -91,6 +116,7 @@ $sidebar-menu-group-close-btn-color: #fff;
 $sidebar-menu-group-menu-bg-color: #333;
 $sidebar-menu-group-menu-link-color: #fff;
 $sidebar-menu-group-menu-border-color: #555;
+$sidebar-menu-group-menu-button-size: 24px;
 
 .sidebar-menu-group {
     &__header {
@@ -105,8 +131,42 @@ $sidebar-menu-group-menu-border-color: #555;
         width: 100%;
 
         &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: $sidebar-menu-group-close-btn-color;
+            width: $sidebar-menu-group-menu-button-size;
+            height: $sidebar-menu-group-menu-button-size;
+            position: relative;
             cursor: pointer;
+
+            &:hover &-line {
+                &:first-child {
+                    transform: rotate(-45deg);
+                }
+
+                &:last-child {
+                    transform: rotate(45deg);
+                }
+            }
+
+            &-line {
+                position: absolute;
+                display: inline-block;
+                width: 3px;
+                height: 60%;
+                border-radius: 10%;
+                background-color: $sidebar-menu-group-header-color;
+                transition: transform 0.5s ease-in-out;
+
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
         }
     }
 
@@ -158,13 +218,22 @@ $sidebar-menu-group-menu-border-color: #555;
             color: $sidebar-menu-group-menu-link-color;
             font-size: 0.7rem;
             letter-spacing: 0.07em;
-
             @include truncate(250px);
 
             &:hover {
                 color: $sidebar-menu-group-menu-link-color;
                 text-decoration: none;
             }
+        }
+
+        &-icon {
+            padding-left: 1rem;
+            color: $sidebar-menu-group-menu-link-color;
+            transform: scale(0.8);
+        }
+
+        &-item--with-icon &-link {
+            padding-left: 1.5rem;
         }
     }
 }

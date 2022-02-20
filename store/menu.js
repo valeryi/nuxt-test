@@ -215,6 +215,145 @@ export const state = () => {
                 },
             },
         ],
+        sidebarMenu: [
+            {
+                text: 'Glasses',
+                href: '#',
+                submenu: [
+                    {
+                        text: "Men's Glasses",
+                        href: '#',
+                    },
+                    {
+                        text: "Women's Glasses",
+                        href: '#',
+                    },
+                    {
+                        text: '$17 - Cheap Glasses',
+                        href: '#',
+                    },
+                    {
+                        text: '2 for 1 from $63.70',
+                        href: '#',
+                    },
+                    {
+                        text: 'Frames by Collection',
+                        href: '#',
+                        submenu: [
+                            {
+                                text: 'Essential Collection',
+                                href: '#',
+                            },
+                            {
+                                text: 'Designer Collection',
+                                href: '#',
+                            },
+                            {
+                                text: 'Boutique Collection',
+                                href: '#',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'Frames by Style',
+                        href: '#',
+                    },
+                    {
+                        text: 'Frames by Colour',
+                        href: '#',
+                    },
+                    {
+                        text: 'Frames by Sport',
+                        href: '#',
+                    },
+                    {
+                        text: 'More Categories »',
+                        href: '#',
+                    },
+                ],
+            },
+            {
+                text: 'Sunglasses',
+                href: '#',
+            },
+            {
+                text: 'Brands',
+                href: '#',
+            },
+            {
+                text: 'Reglaze',
+                href: '#',
+            },
+            {
+                text: 'Contact Lenses',
+                href: '#',
+            },
+            {
+                text: 'Hearing AIDs',
+                href: '#',
+            },
+            {
+                text: 'Goggles',
+                href: '#',
+            },
+            {
+                text: 'Ready Readers',
+                href: '#',
+            },
+            {
+                text: 'Accessories',
+                href: '#',
+            },
+            {
+                text: 'Sale & Offers',
+                href: '#',
+            },
+            {
+                text: 'Help Me Choose',
+                href: '#',
+            },
+        ],
+        accountMenu: [
+            {
+                text: 'Account & Orders',
+                href: '#',
+                icon: 'person-circle',
+            },
+            {
+                text: 'Spend & Earn Rewards',
+                href: '#',
+                icon: 'award',
+            },
+            {
+                text: 'Wishlist',
+                href: '#',
+                icon: 'heart',
+            },
+        ],
+        saleMenu: [
+            {
+                text: 'Help & Information',
+                href: '#',
+                icon: 'question-circle',
+            },
+            {
+                text: 'Email us',
+                href: '#',
+                icon: 'envelope',
+                email: 'test@test.com',
+            },
+            {
+                text: '03303 801 190',
+                href: '#',
+                icon: 'telephone',
+                tel: '03303 801 190',
+            },
+            {
+                text: 'About Us',
+                href: '#',
+                icon: 'info-circle',
+            },
+        ],
         mobileActive: false,
         dropdowns: [],
     }
@@ -223,6 +362,15 @@ export const state = () => {
 export const getters = {
     getMenu: (state) => {
         return state.menu
+    },
+    getSidebarMenu: (state) => {
+        return state.sidebarMenu
+    },
+    getAccountMenu: (state) => {
+        return state.accountMenu
+    },
+    getSaleMenu: (state) => {
+        return state.saleMenu
     },
     isMobileActive: (state) => {
         return state.mobileActive
@@ -239,6 +387,13 @@ export const actions = {
     closeSideBarMobile: ({ commit }) => {
         commit('TOGGLE_SIDEBAR_MOBILE')
         commit('CLEAR_DROPDOWNS')
+    },
+    toggleSideBarMobile: ({ commit, getters }) => {
+        if (getters.isMobileActive) {
+            commit('CLEAR_DROPDOWNS')
+        }
+
+        commit('TOGGLE_SIDEBAR_MOBILE')
     },
 }
 

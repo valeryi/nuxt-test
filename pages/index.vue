@@ -97,6 +97,7 @@ $reglaze-cards-section-border-width: 2px;
     &__header {
         font-size: 1.5em;
         font-weight: 600;
+        text-align: center;
 
         @include media-breakpoint-up(1024px) {
             font-size: 1.8em;

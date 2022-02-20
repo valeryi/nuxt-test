@@ -19,11 +19,13 @@
                 :key="index"
                 :class="hasSubmenu(item)"
                 class="menu-mobile-group-dropdown__item"
-                @click.stop="onOpenDropdown(item, `${currentLevel}_${index}`)"
+                @click.stop.prevent="
+                    onOpenDropdown(item, `${currentLevel}_${index}`)
+                "
             >
-                <a href="#" class="menu-mobile-group-dropdown__link">{{
-                    item.text
-                }}</a>
+                <a href="#" class="menu-mobile-group-dropdown__link">
+                    {{ item.text }}
+                </a>
 
                 <transition-slide-in-left>
                     <the-header-menu-mobile-group-dropdown
@@ -83,6 +85,8 @@ export default {
         onOpenDropdown(item, id) {
             if (item.submenu && !this.isActive(id)) {
                 this.$emit('dropdown:open', { item, id })
+            } else {
+                open(item.href, '_self')
             }
         },
         onCloseDropdown() {
@@ -144,7 +148,7 @@ $menu-mobile-dropdown-bg-color: #545454;
     &__back-button {
         color: $menu-mobile-dropdown-color;
         font-size: 0.8em;
-        display: block;
+        display: flex;
         padding-left: 1.7em;
         font-size: 0.7rem;
         cursor: pointer;
@@ -155,6 +159,27 @@ $menu-mobile-dropdown-bg-color: #545454;
             text-decoration: none;
             height: 100%;
             width: 100%;
+        }
+    }
+
+    &__back-button {
+        display: flex;
+        padding-left: 3em;
+
+        &::before {
+            content: '';
+            align-self: center;
+            width: 0;
+            height: 0;
+            border: 6px inset;
+            border-color: transparent transparent transparent
+                $menu-mobile-dropdown-color;
+            border-left-style: solid;
+            border-right-width: 0;
+            position: absolute;
+            left: 1.1rem;
+            z-index: 1000;
+            transform: rotate(180deg);
         }
     }
 }

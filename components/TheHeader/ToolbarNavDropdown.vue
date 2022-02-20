@@ -13,18 +13,21 @@
             :key="`gender_${index}`"
             class="toolbar-nav-dropdown__item toolbar-nav-dropdown__item--gender"
         >
-            <a :href="link.href" class="toolbar-nav-dropdown__link">{{
-                link.text
-            }}</a>
+            <a :href="link.href" class="toolbar-nav-dropdown__link">
+                {{ link.text }}
+            </a>
         </li>
+
         <li
             v-for="(link, index) of submenu"
             :key="index"
+            :class="{ 'toolbar-nav-dropdown__item--has-submenu': link.submenu }"
             class="toolbar-nav-dropdown__item"
         >
             <a :href="link.href" class="toolbar-nav-dropdown__link">{{
                 link.text
             }}</a>
+
             <the-header-toolbar-nav-dropdown
                 v-if="link.submenu"
                 :submenu="link.submenu"
@@ -78,6 +81,7 @@ $toolbar-nav-dropdown-shadow: 0 3px 5px 0 rgb(0 0 0 / 30%);
         width: 100%;
         color: $toolbar-nav-dropdown-link-color;
         font-size: $toolbar-nav-dropdown-link-font-size;
+        @include truncate(200px);
 
         &:hover {
             color: $toolbar-nav-dropdown-link-color;
@@ -86,6 +90,7 @@ $toolbar-nav-dropdown-shadow: 0 3px 5px 0 rgb(0 0 0 / 30%);
     }
 
     &__item {
+        display: flex;
         border-bottom: 1px solid
             darken($color: $toolbar-nav-dropdown-link-color-hover, $amount: 5%);
 
@@ -102,6 +107,23 @@ $toolbar-nav-dropdown-shadow: 0 3px 5px 0 rgb(0 0 0 / 30%);
                     $color: $toolbar-nav-dropdown-link-color-hover,
                     $amount: 20%
                 );
+        }
+
+        &--has-submenu {
+            display: flex;
+
+            &::after {
+                content: '';
+                align-self: center;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 6px 5px 0 5px;
+                border-color: $toolbar-nav-dropdown-link-color transparent
+                    transparent transparent;
+                margin-left: 0.7rem;
+                transform: rotate(-90deg) translateY(-2rem);
+            }
         }
     }
 

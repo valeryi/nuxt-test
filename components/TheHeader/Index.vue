@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
     methods: {
-        ...mapMutations({
-            toggleSidebar: 'menu/TOGGLE_SIDEBAR_MOBILE',
+        ...mapActions({
+            toggleSidebar: 'menu/toggleSideBarMobile',
         }),
     },
 }
