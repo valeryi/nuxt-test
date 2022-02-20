@@ -159,7 +159,7 @@ $sidebar-menu-group-menu-border-color: #555;
             font-size: 0.7rem;
             letter-spacing: 0.07em;
 
-            @include truncate(200px);
+            @include truncate(250px);
 
             &:hover {
                 color: $sidebar-menu-group-menu-link-color;

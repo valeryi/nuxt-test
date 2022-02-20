@@ -81,12 +81,12 @@ $transition-sidebar: transform 0.5s;
     }
 
     &--shifted {
-        transform: translateX(200px);
+        transform: translateX(250px);
     }
 
     &__sidebar {
         position: absolute;
-        left: -200px;
+        left: -250px;
     }
 }
 </style>

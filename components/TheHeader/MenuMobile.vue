@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-$sidebar-width: 200px;
+$sidebar-width: 250px;
 
 .sidebar-mobile {
     user-select: none;
