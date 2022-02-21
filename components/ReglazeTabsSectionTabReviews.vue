@@ -1,5 +1,5 @@
 <template>
-    <b-tab title="Reviews (5)" active>
+    <b-tab title="Reviews (5)">
         <div class="trustpilot-rating">
             <div class="trustpilot-rating__left">
                 <span class="trustpilot-rating__title">Excellent</span>
