@@ -1,5 +1,5 @@
 <template>
-    <b-tab title="Information" class="tabs-info" active>
+    <b-tab title="Information" class="tabs-info">
         <div>
             <div class="tabs-info__header">
                 <h3 class="text-center tabs-info__header-text">

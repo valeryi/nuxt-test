@@ -41,6 +41,11 @@ $tabs-section-subline-font-size: 0.9em;
         border: none;
 
         .nav-item {
+            &:focus,
+            &:active {
+                outline: none;
+            }
+
             .nav-link {
                 padding: 1rem;
                 font-size: 1rem;
@@ -64,6 +69,11 @@ $tabs-section-subline-font-size: 0.9em;
                     border-right: 1px solid $tabs-section-border-color;
                     border-bottom: 1px solid $tabs-section-border-color-active;
                     box-shadow: none;
+                }
+
+                &:focus,
+                &:active {
+                    outline: none;
                 }
             }
         }

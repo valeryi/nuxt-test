@@ -62,8 +62,12 @@
     }
 }
 
-@mixin truncate($width: 200px) {
-    width: $width;
+@mixin truncate($width: false) {
+    @if $width {
+        width: $width;
+    }
+
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
